@@ -1,0 +1,94 @@
+6.int VLAN routing on the L3 switches plus ip dhcp helper addr
+
+this on Floor-1L3 SW & Floor-2L3
+vlan 10
+vlan 20
+vlan 30
+vlan 40
+vlan 50
+vlan 60
+
+int vlan 10
+no shutdown
+ip addr 192.168.10.1 255.255.255.192
+ip helper-address 192.168.12.196
+exit
+
+int vlan 20
+no shutdown
+ip addr 192.168.10.65 255.255.255.192
+ip helper-address 192.168.12.196
+exit
+
+int vlan 30
+no shutdown
+ip addr 192.168.10.129 255.255.255.192
+ip helper-address 192.168.12.196
+exit
+
+int vlan 40
+no shutdown
+ip addr 192.168.10.193 255.255.255.192
+ip helper-address 192.168.12.196
+exit
+
+int vlan 50
+no shutdown
+ip addr 192.168.11.1 255.255.255.192
+ip helper-address 192.168.12.196
+exit
+
+int vlan 60
+no shutdown
+ip addr 192.168.11.65 255.255.255.192
+ip helper-address 192.168.12.196
+exit
+do wr
+
+
+this on Floor-3L3 SW & Floor-4L3
+vlan 70
+vlan 80
+vlan 90
+vlan 100
+vlan 110
+vlan 120
+
+int vlan 70
+no shutdown
+ip addr 192.168.11.129 255.255.255.192
+ip helper-address 192.168.12.196
+exit
+
+int vlan 800
+no shutdown
+ip addr 192.168.11.193 255.255.255.192
+ip helper-address 192.168.12.196
+exit
+
+int vlan 90
+no shutdown
+ip addr 192.168.12.1 255.255.255.192
+ip helper-address 192.168.12.196
+exit
+
+int vlan 100
+no shutdown
+ip addr 192.168.12.65 255.255.255.192
+ip helper-address 192.168.12.196
+exit
+
+int vlan 110
+no shutdown
+ip addr 192.168.12.129 255.255.255.192
+ip helper-address 192.168.12.196
+exit
+
+int vlan 120
+no shutdown
+ip addr 192.168.12.193 255.255.255.192
+exit
+do wr
+
+
+

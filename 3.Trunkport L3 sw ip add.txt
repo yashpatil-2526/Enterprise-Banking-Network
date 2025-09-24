@@ -1,0 +1,56 @@
+Trunkport Layer 3 switch
+
+FLOOR-1L3SW#int range gig 1/0/3-8
+            switchport mode trunk
+            exit
+            do wr
+
+Then Conf Ip addr L3 switch inter connected to R
+int range gig 1/0/1-2
+no switchport
+exit
+do wr
+
+ip addr assign
+int gig 1/0/1
+ip addr 10.10.10.1 255.255.255.252
+no shutdown
+exit
+do wr
+
+int gig 1/0/2
+ip addr 10.10.10.9 255.255.255.252
+no shutdown
+exit
+do wr
+
+Then Conf Ip addr Router1 connected to switch
+int gig 0/1
+ip addr 10.10.10.6 255.255.255.252
+no shutdown
+exit
+
+int gig 0/2
+ip addr 10.10.10.2 255.255.255.252
+no shutdown
+exit
+do wr
+
+int gig 0/0
+ip addr 10.10.10.29 255.255.255.252
+no shutdown
+exit 
+do wr
+
+int serial 0/2/1
+ip addr 10.10.10.33 255.255.255.252
+no shutdown
+clock rate 64000  (Serial Time cable join port)
+exit
+int serial 0/2/0
+ip addr 10.10.10.17 255.255.255.252
+no shut 
+clock rate 64000
+exit
+
+

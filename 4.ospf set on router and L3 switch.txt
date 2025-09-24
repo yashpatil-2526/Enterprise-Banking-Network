@@ -1,0 +1,23 @@
+ospf set on router and L3 switch
+
+this is on router 
+router ospf 10
+network 10.10.10.0 0.0.0.3 area 0
+network 10.10.10.4 0.0.0.3 area 0
+network 10.10.10.16 0.0.0.3 area 0
+network 10.10.10.28 0.0.0.3 area 0
+network 10.10.10.32 0.0.0.3 area 0
+exit
+do wr
+
+this is on L3 switch
+router ospf 10
+network 10.10.10.0 0.0.0.3 area 0
+network 10.10.10.8 0.0.0.3 area 0
+
+network 192.168.10.0 0.0.0.63 area 0
+network 192.168.10.64 0.0.0.63 area 0
+network 192.168.10.128 0.0.0.63 area 0
+network 192.168.10.192 0.0.0.63 area 0
+network 192.168.11.0 0.0.0.63 area 0
+network 192.168.11.64 0.0.0.63 area 0

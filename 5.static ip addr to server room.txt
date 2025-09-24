@@ -1,0 +1,28 @@
+5.static ip addr to server room
+DHCP - 192.168.12.196
+       255.255.255.192
+G/W  - 192.168.12.193
+
+EMAIL -192.168.12.197
+       255.255.255.192
+G/W  - 192.168.12.193
+
+HTTPS- 192.168.12.198
+       255.255.255.192
+G/W  - 192.168.12.193
+
+
+DHCP server device confi.
+
+into services 
+on dhcp 
+pool name -MGT-Pool
+Default g/w-192.168.10.1
+start ip -192.168.10.6
+mask    - 255.255.255.192
+maxi user- 58
+Add
+next
+like that do on all floor
+
+       

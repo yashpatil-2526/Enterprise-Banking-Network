@@ -1,0 +1,79 @@
+#########Switch L2 set password,SSH,No ip
+
+en
+FLOOR-1MGT-SW#conf t
+domain
+hostname F1-Mgt-SW 
+banner motd #This Floor Mgt Switch#
+
+line console 0
+password cisco
+login
+exit
+
+line vty 0 15
+password cisco
+login
+exit
+
+no ip domain-lookup
+enable password cisco
+service password-encryption
+
+do wr
+
+########Switch core layer routerL3 Setup
+
+FLOOR-1L3SW#en
+conf t
+hostname F1-L3-SW 
+banner motd #This Layer 3 Switch#
+
+line console 0
+password cisco
+login
+exit
+
+ip domain-name bank.net
+username cisco password cisco
+crypto key generate rsa 
+1024
+
+line vty 0 15
+login local
+transport input ssh
+exit
+
+no ip domain-lookup
+enable password cisco
+service password-encryption
+
+do wr
+
+###########Router 
+en
+conf t
+hostname Core-LayerR
+banner motd #This is Core-Layer router#
+
+line console 0
+password cisco
+login
+exit
+
+ip domain-name bank.net
+username cisco password cisco
+crypto key generate rsa 
+1024
+
+line vty 0 15
+login local
+transport input ssh
+exit
+
+no ip domain-lookup
+enable password cisco
+service password-encryption
+
+do wr
+

@@ -1,0 +1,27 @@
+VLAN assignment plus all access and trunk ports
+Switch security to all 12 switches on layer 2
+
+
+ int range fa0/1-2
+switchport mode trunk
+exit
+
+vlan 10 
+name management
+exit
+
+
+int range fa0/3-24
+switchport mode access
+switchport access vlan 10
+switchport port-security
+switchport port-security maximum 2
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
+
+do wr
+exit
+
+do show start
+
+do show port-security

@@ -1,0 +1,9 @@
+7.WLC Config
+go acces poi in conf 
+port 1
+
+SSID(wifiname)-anything
+authe-WPA2-PSK-and give password
+
+then go devices
+desktop-pc wireless-connect-
